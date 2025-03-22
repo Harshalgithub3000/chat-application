@@ -10,7 +10,7 @@ app.use(cookieParser());
 console.log(process.env.CLIENT_URL);
 
 app.use(cors({
-   origin:[ process.env.CLIENT_URL,"http://localhost:5173"], // Allow frontend to access backend
+   origin:["https://chat-application-inky-alpha.vercel.app", process.env.CLIENT_URL,"http://localhost:5173"], // Allow frontend to access backend
    credentials: true, // Allow cookies if used
  }));
 const PORT = process.env.PORT || 4000
