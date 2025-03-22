@@ -3,9 +3,22 @@ import express from "express";
 import { connectDb } from './db/connection1.db.js';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
+import fs from 'fs';
+import path from 'path';
+
 
 app.use(express.json());
 app.use(cookieParser());
+
+const tempDir = path.join(process.cwd(), 'public/temp');
+
+
+// Check if the directory exists
+if (!fs.existsSync(tempDir)) {
+  // Create the directory (including parent folders if needed)
+  fs.mkdirSync(tempDir, { recursive: true });
+  console.log("Temp directory created:", tempDir);
+}
 
 
 const allowedOrigins = [
