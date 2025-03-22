@@ -40,8 +40,10 @@ const handleUpdate = (updatedData) =>{
   }));
 }
 
-  const filteredData = otherUsers.filter((otherUser)=> otherUser.fullName.toLowerCase().includes(query.toLowerCase()) ||  otherUser.username.toLowerCase().includes(query.toLowerCase()))
-
+const filteredData = (otherUsers ?? []).filter((otherUser) => 
+  otherUser.fullName.toLowerCase().includes(query.toLowerCase()) ||  
+  otherUser.username.toLowerCase().includes(query.toLowerCase())
+);
   return (
     <div className="max-w-[20rem]  w-full h-screen flex flex-col">
       <div className="text-center bg-gray-900 p-2.5  font-semibold text-cyan-500 font-logo">
