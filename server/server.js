@@ -7,18 +7,30 @@ import cors from "cors"
 app.use(express.json());
 app.use(cookieParser());
 
-console.log(process.env.CLIENT_URL);
 
-app.use(cors({
-   origin:[ process.env.CLIENT_URL,"http://localhost:5173"], // Allow frontend to access backend
-   credentials: true, // Allow cookies if used
+const allowedOrigins = [
+    "http://localhost:5173",
+   "https://chat-application-inky-alpha.vercel.app", // Main production domain
+   "https://chat-application-n9lvb6u7y-harshals-projects-eff9b42d.vercel.app" // Preview deployment
+ ];
+ 
+ app.use(cors({
+   origin: function (origin, callback) {
+     if (!origin || allowedOrigins.includes(origin)) {
+       callback(null, true);
+     } else {
+        console.log("Blocked by CORS:", origin);
+       callback(new Error("Not allowed by CORS"));
+     }
+   },
+   credentials: true,
  }));
+ 
+
+
 const PORT = process.env.PORT || 4000
 
 
-app.get('/', (req, res) => {
-   res.send('Hello World!')
- })
 
 //api
 import userRoute from "./routes/user.route.js";
