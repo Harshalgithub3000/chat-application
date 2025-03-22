@@ -15,6 +15,11 @@ app.use(cors({
  }));
 const PORT = process.env.PORT || 4000
 
+
+app.get('/', (req, res) => {
+   res.send('Hello World!')
+ })
+
 //api
 import userRoute from "./routes/user.route.js";
 import messageRoute from "./routes/message.route.js"
