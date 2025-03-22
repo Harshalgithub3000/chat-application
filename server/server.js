@@ -9,11 +9,11 @@ app.use(cookieParser());
 
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    "https://chat-application-eta-six.vercel.app", // Main Production URL
-  "https://chat-application-c6e5bbz0q-harshals-projects-eff9b42d.vercel.app" // New Preview URL
- ];
- 
+   "http://localhost:5173",
+   "https://chat-application-eta-six.vercel.app", // Main Production URL
+   "https://chat-application-c6e5bbz0q-harshals-projects-eff9b42d.vercel.app", // Previous Preview URL
+   "https://chat-application-30qktasjc-harshals-projects-eff9b42d.vercel.app" // NEW Preview Deployment URL
+]; 
  app.use(cors({
    origin: function (origin, callback) {
      if (!origin || allowedOrigins.includes(origin)) {
