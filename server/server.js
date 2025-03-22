@@ -10,8 +10,8 @@ app.use(cookieParser());
 
 const allowedOrigins = [
     "http://localhost:5173",
-   "https://chat-application-inky-alpha.vercel.app", // Main production domain
-   "https://chat-application-n9lvb6u7y-harshals-projects-eff9b42d.vercel.app" // Preview deployment
+    "https://chat-application-eta-six.vercel.app", // Main Production URL
+  "https://chat-application-c6e5bbz0q-harshals-projects-eff9b42d.vercel.app" // New Preview URL
  ];
  
  app.use(cors({
