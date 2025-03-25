@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPen, FaSearch } from "react-icons/fa";
 import User from "./User";
 import Logo from "../../assets/logo.jpg"
@@ -27,7 +27,7 @@ const UserSidebar = () => {
 
   }
 
-  
+
   useEffect(() => {
     if (!document.cookie.includes("token")) {
         navigate("/login");
