@@ -22,7 +22,8 @@ const uploadOnCloudinary = async (localFilepath)=> {
         //uplode the file on cloudinary
        const response = await cloudinary.uploader.upload(localFilepath,{
             resource_type:"auto",
-            folder:"chit-chat"
+            folder:"chit-chat",
+            secure: true 
         })
         // console.log("Cloudinary Upload Response:", response);
         // //file has been uploaded successfully
