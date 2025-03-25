@@ -98,8 +98,16 @@ export const login = asyncHandler(async (req, res) => {
 });
 
 export const logout= asyncHandler(async(req,res)=>{
-  res.status(200)
-  .cookie("token","", { expires: new Date(0), httpOnly: true })
+  res
+  .clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    domain: "chat-application-aibu.onrender.com", // Ensure correct domain
+    path: "/",
+  })
+  .status(200)
+  // .cookie("token","", { expires: new Date(0), httpOnly: true })
   .json(
     new apiResponse(200,"User logged out successfully")
   )

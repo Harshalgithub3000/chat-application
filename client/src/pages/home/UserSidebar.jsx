@@ -7,8 +7,11 @@ import toast from "react-hot-toast";
 import { logoutUserThunk, updateUserThunk } from "../../store/slice/user/userThunk";
 import { persistor } from "../../store/store";
 import PopupForm from "./PopupForm";
+import { useNavigate } from "react-router-dom";
+
 
 const UserSidebar = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -18,10 +21,18 @@ const UserSidebar = () => {
 
   const handleLogout=()=>{
     dispatch(logoutUserThunk())
-    toast.success("Logged out successfully")
     persistor.purge(); 
+    toast.success("Logged out successfully")
+    navigate("/login")
 
   }
+
+  
+  useEffect(() => {
+    if (!document.cookie.includes("token")) {
+        navigate("/login");
+    }
+}, []);
 
   const handleUpdateClick = (e) =>{
     e.preventDefault()
