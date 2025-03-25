@@ -21,6 +21,7 @@ if (!fs.existsSync(tempDir)) {
 }
 
 const allowedOrigins = [
+  "chat-application-eta-six.vercel.app",
   "https://chat-application-30qktasjc-harshals-projects-eff9b42d.vercel.app",
   "https://chat-application-gyejbkvna-harshals-projects-eff9b42d.vercel.app"
 ];
