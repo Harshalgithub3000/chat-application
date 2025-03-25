@@ -20,13 +20,11 @@ if (!fs.existsSync(tempDir)) {
   console.log("Temp directory created:", tempDir);
 }
 
-
 const allowedOrigins = [
-   "http://localhost:5173",
-   "https://chat-application-eta-six.vercel.app", // Main Production URL
-   "https://chat-application-30qktasjc-harshals-projects-eff9b42d.vercel.app", // NEW Preview Deployment URL,
-   "chat-application-815sqt17i-harshals-projects-eff9b42d.vercel.app"
-]; 
+  "https://chat-application-30qktasjc-harshals-projects-eff9b42d.vercel.app",
+  "https://chat-application-gyejbkvna-harshals-projects-eff9b42d.vercel.app"
+];
+
  app.use(cors({
    origin: function (origin, callback) {
      if (!origin || allowedOrigins.includes(origin)) {
